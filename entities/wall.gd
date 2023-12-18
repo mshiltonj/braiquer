@@ -5,5 +5,6 @@ extends StaticBody2D
 
 func been_hit(pos: Vector2):
 	bounce_sound.play()
-	hit_particles.global_position = pos
-	hit_particles.emitting = true
+	if OS.get_name() != "Web":
+		hit_particles.global_position = pos
+		hit_particles.emitting = true

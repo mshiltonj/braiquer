@@ -29,4 +29,5 @@ func _physics_process(_delta):
 	
 func been_hit(_pos : Vector2):
 	bounce_sound.play()
-	hit_particles.emitting = true
+	if OS.get_name() != "Web":
+		hit_particles.emitting = true

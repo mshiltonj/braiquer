@@ -23,7 +23,8 @@ func been_hit(pos : Vector2):
 	dead = true
 	hit_sound.play()
 	hit_particles.global_position = pos
-	hit_particles.emitting = true
+	if OS.get_name() != "Web":
+		hit_particles.emitting = true
 	emit_signal("destroyed", self)
 	collision_layer = 0
 	collision_mask = 0
