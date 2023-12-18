@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://8htnk1x507go"]
+
+[ext_resource type="FontFile" uid="uid://ck1t3vkckseg7" path="res://assets/fonts/Pixel Digivolve.otf" id="1_a758r"]
+[ext_resource type="StyleBox" uid="uid://cl0cs8pmw2j0a" path="res://button_hover.tres" id="2_gyynf"]
+[ext_resource type="StyleBox" uid="uid://cs4hiskuaxxxs" path="res://button_normal.tres" id="2_hnmey"]
+[ext_resource type="StyleBox" uid="uid://clhuqa4txgfk2" path="res://button_pressed.tres" id="4_yc8q8"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 0.501961)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_a758r")
+Button/styles/hover = ExtResource("2_gyynf")
+Button/styles/normal = ExtResource("2_hnmey")
+Button/styles/pressed = ExtResource("4_yc8q8")
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_a758r")

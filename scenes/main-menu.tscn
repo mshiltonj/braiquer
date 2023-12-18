@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://oymtbfjenbm2"]
+
+[ext_resource type="Script" path="res://scenes/main-menu.gd" id="1_kdjiu"]
+[ext_resource type="Texture2D" uid="uid://cyauf21sk31xp" path="res://assets/images/background.png" id="2_gbtin"]
+[ext_resource type="Texture2D" uid="uid://cvh8i55e0mo8r" path="res://assets/images/logo.png" id="3_rl3cp"]
+[ext_resource type="Theme" uid="uid://8htnk1x507go" path="res://game_theme.tres" id="4_2i1v6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("4_2i1v6")
+script = ExtResource("1_kdjiu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1071.0
+texture = ExtResource("2_gbtin")
+stretch_mode = 1
+
+[node name="MainMenuContainer" type="CenterContainer" parent="." groups=["hud_sections"]]
+layout_mode = 0
+offset_right = 1904.0
+offset_bottom = 1084.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MainMenuContainer"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="MainMenuContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_rl3cp")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="StartButton" type="Button" parent="MainMenuContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Game
+"
+
+[node name="HowToButton" type="Button" parent="MainMenuContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "How To Play"
+
+[node name="CreditsButton" type="Button" parent="MainMenuContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="MainMenuContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="HowToContainer" type="CenterContainer" parent="." groups=["hud_sections"]]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_right = 1918.0
+offset_bottom = 1068.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HowToHeading" type="Label" parent="HowToContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "How To Play
+"
+horizontal_alignment = 1
+
+[node name="HowTo" type="Label" parent="HowToContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Click mouse to launch Ball.
+Move mouse to move Paddle.
+Keep the Ball in play. 
+Hit Blocks with the ball to destroy Block.
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HowToContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 150
+
+[node name="BackToMain" type="Button" parent="HowToContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+text = "Back To Main"
+
+[node name="CreditsContainer" type="CenterContainer" parent="." groups=["hud_sections"]]
+visible = false
+layout_mode = 1
+offset_right = 1929.0
+offset_bottom = 1069.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CreditsHeading" type="Label" parent="CreditsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Credits
+"
+horizontal_alignment = 1
+
+[node name="CREDITS GO HERE" type="Label" parent="CreditsContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREDITS GO HERE
+"
+horizontal_alignment = 1
+
+[node name="BackToMain" type="Button" parent="CreditsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+text = "Back To Main"
+
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer2/MarginContainer/VBoxContainer/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer2/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

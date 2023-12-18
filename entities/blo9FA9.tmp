@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce60kctkm3mcq"]
+
+[ext_resource type="Script" path="res://entities/block.gd" id="1_ajd0e"]
+[ext_resource type="AudioStream" uid="uid://ojhqid4wqphl" path="res://assets/sounds/194439__high_festiva__gem_ping.wav" id="2_ak63g"]
+[ext_resource type="Texture2D" uid="uid://btxqyfdvjdogs" path="res://assets/images/block.png" id="2_bva4b"]
+[ext_resource type="Texture2D" uid="uid://b0dvh5ski8mrn" path="res://assets/images/puff-particle.png" id="4_rw644"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnuk0"]
+size = Vector2(150, 29.75)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7pdwg"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 72.2
+initial_velocity_max = 72.2
+gravity = Vector3(0, 0, 0)
+
+[node name="Block" type="CharacterBody2D" groups=["Block"]]
+script = ExtResource("1_ajd0e")
+
+[node name="BlockSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(76, 15)
+texture = ExtResource("2_bva4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(76, 15.125)
+shape = SubResource("RectangleShape2D_jnuk0")
+
+[node name="DeathTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_ak63g")
+
+[node name="HitParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(80, 13)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_7pdwg")
+texture = ExtResource("4_rw644")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0

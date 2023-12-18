@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhxsaglsojkim"]
+
+[ext_resource type="Script" path="res://scenes/board/board.gd" id="1_2l2f4"]
+[ext_resource type="Texture2D" uid="uid://c64bna6x0h42q" path="res://assets/night-sky.jpg" id="1_f7irf"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_2l2f4")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_f7irf")

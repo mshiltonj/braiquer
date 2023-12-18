@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://craikq3eyy56q"]
+
+[ext_resource type="Script" path="res://entities/ball.gd" id="1_scnpq"]
+[ext_resource type="Texture2D" uid="uid://w3j4m1e11yf5" path="res://assets/images/ball.png" id="2_rs1d6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ew01h"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sald7"]
+radius = 14.0
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_scnpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 13)
+shape = SubResource("CircleShape2D_ew01h")
+
+[node name="BallSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(14, 13)
+texture = ExtResource("2_rs1d6")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+position = Vector2(14, 13)
+shape = SubResource("CircleShape2D_sald7")
+
+[node name="StartTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+autostart = true

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmcbn3tiyxuwf"]
+
+[ext_resource type="Script" path="res://entities/paddle.gd" id="1_q2g4t"]
+[ext_resource type="Texture2D" uid="uid://b0dvh5ski8mrn" path="res://assets/images/puff-particle.png" id="2_0be7x"]
+[ext_resource type="AudioStream" uid="uid://bifb3w52p8mlq" path="res://assets/sounds/505628__highpixel__basketballbounce.wav" id="2_ab4fr"]
+[ext_resource type="Texture2D" uid="uid://djgna2f640cpv" path="res://assets/images/paddle.png" id="3_m1uxv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6nay2"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 1)
+angle_min = -209.3
+angle_max = 200.9
+velocity_pivot = Vector3(0, 50, 0)
+direction = Vector3(0, -50, 0)
+spread = 54.419
+initial_velocity_min = 104.64
+initial_velocity_max = 203.48
+gravity = Vector3(0, 50, 0)
+turbulence_noise_scale = 0.742
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdn1f"]
+size = Vector2(150, 30)
+
+[node name="Paddle" type="CharacterBody2D" groups=["paddle"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_q2g4t")
+
+[node name="HitParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(76, 19)
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_6nay2")
+texture = ExtResource("2_0be7x")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.99
+
+[node name="PaddleSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(77, 17)
+texture = ExtResource("3_m1uxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(77, 18)
+shape = SubResource("RectangleShape2D_qdn1f")
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_ab4fr")
+pitch_scale = 0.35
